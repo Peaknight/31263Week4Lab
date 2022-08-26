@@ -7,6 +7,7 @@ public class PrintAndHide : MonoBehaviour
 
     public Renderer rend;
     int i = 3;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,18 +19,21 @@ public class PrintAndHide : MonoBehaviour
     void Update()
     {
         i++;
+        int a = Random.Range(200, 251);
+
         Debug.Log(gameObject.name +":"+ i);
 
-        if(i == 100)
+        if(i == 100 && GameObject.FindGameObjectWithTag("Red"))
         {
-            GameObject.FindGameObjectWithTag("Red").SetActive(false);
+            gameObject.SetActive(false);
         }
-        int a = Random.Range(200, 251);
-        if (i == a)
+        
+        if (i == a && GameObject.FindGameObjectWithTag("Blue"))
         {
-            GameObject.FindGameObjectWithTag("Red");
-                rend.enabled = false;
-        }
+            rend = GetComponent<Renderer>();
+            rend.enabled = false;
+        } 
+        
 
 
 
